@@ -1,5 +1,7 @@
 <script>
   // import { onMount } from 'svelte';
+  import Component1 from "./Component1.svelte";
+  import Fruits from "./Fruits.svelte";
 
   export let name;
   name = "choks";
@@ -109,3 +111,24 @@
 >
   {name}
 </div>
+
+<br />
+<hr />
+
+<Component1 />
+
+<br />
+<hr />
+
+<Fruits propsFruit="{fruits}" />
+
+<Fruits propsFruit="{fruits}" reverse />
+
+<Fruits propsFruit="{fruits}" slice="-2" />
+
+<Fruits propsFruit="{fruits}" slice="0, 2" />
+<!-- 
+	// Props와 데이터 이름이 같다면 생각가능한데 프리티어가 자동으로 써버리네..?
+	<Fruits fruits="{fruits}" /> 
+	<Fruits {fruits} /> 
+-->
