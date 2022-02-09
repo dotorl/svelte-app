@@ -2,6 +2,7 @@
   // import { onMount } from 'svelte';
   import Component1 from "./Component1.svelte";
   import Fruits from "./Fruits.svelte";
+  import Parent from "./parent.svelte";
 
   export let name;
   name = "choks";
@@ -132,3 +133,8 @@
 	<Fruits fruits="{fruits}" /> 
 	<Fruits {fruits} /> 
 -->
+
+<br />
+<hr />
+
+<Parent name="{name}" />
