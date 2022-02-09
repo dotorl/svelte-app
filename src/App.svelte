@@ -1,5 +1,6 @@
 <script>
   import { storeName } from "./store.js";
+  import Todo from "./Todo.svelte";
 
   // console.log(storeName);
   // console.log($storeName);
@@ -19,6 +20,7 @@
   import Component1 from "./Component1.svelte";
   import Fruits from "./Fruits.svelte";
   import Parent from "./parent.svelte";
+  import { writable } from "svelte/store";
 
   export let name;
   name = "choks";
@@ -41,6 +43,18 @@
   // 	const box = document.querySelector('.box');
   // 	box.addEventListener('click' , () => { isRed = !isRed });
   // });
+
+  let title = "";
+  let todos = writable([]);
+  function createTodo() {
+    $todos.push({
+      id: $todos.length + 1,
+      title: title,
+    });
+
+    title = "";
+    $todos = $todos;
+  }
 </script>
 
 <style>
@@ -157,3 +171,17 @@
 <hr />
 
 <Parent />
+<br />
+<hr />
+
+<input
+  type="text"
+  bind:value="{title}"
+  on:keydown="{(e) => e.key === 'Enter' && createTodo()}"
+/>
+
+<button on:click="{createTodo}">Create Todo</button>
+
+{#each $todos as todo}
+  <Todo todos="{todos}" todo="{todo}" />
+{/each}
