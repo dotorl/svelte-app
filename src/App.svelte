@@ -1,4 +1,20 @@
 <script>
+  import { storeName } from "./store.js";
+
+  // console.log(storeName);
+  // console.log($storeName);
+
+  // storeName.set("aaaaa");
+  // console.log($storeName);
+
+  // $storeName = "tttttt";
+  // console.log($storeName);
+
+  // storeName.update(function (value) {
+  //   return value + "bbbbb";
+  // });
+  // console.log($storeName);
+
   // import { onMount } from 'svelte';
   import Component1 from "./Component1.svelte";
   import Fruits from "./Fruits.svelte";
@@ -6,6 +22,9 @@
 
   export let name;
   name = "choks";
+
+  // store 변수에 다른 변수 대입
+  $storeName = name;
 
   function assign() {
     name = "asdfasfd";
@@ -137,4 +156,4 @@
 <br />
 <hr />
 
-<Parent name="{name}" />
+<Parent />
